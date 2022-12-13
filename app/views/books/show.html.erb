@@ -1,0 +1,17 @@
+<div class="show">
+  <div class="show-box">
+    <p><%= notice %></p>
+  </div>
+  
+  <div class="show-box">
+    <p><b>Title:</b><%= @book.title %></p>
+  </div>
+  
+  <div class="show-box">
+    <p><b>Body:</b><%= @book.body %></p>
+  </div>
+</div>
+
+<div class="show-link">
+  <p><%= link_to "Edit", edit_book_path(@book.id) %> | <%= link_to "Back", books_path %></p>
+</div>

@@ -1,0 +1,36 @@
+<h1>Books</h1>
+
+<div class="books-body">
+  <p>Title</p>
+  <p>Body</p>
+</div>
+
+<div class="book-warap">
+<% @books.each do |book| %>
+  <div class="comment">
+    <a><%= book.body %><a>
+    <a><%= book.title %></a>
+  </div>
+<% end %>
+</div>
+
+<h4>New book</h4>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %> erros prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @book, url: '/books', method: :post do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  
+  <p>Body</p>
+  <%= f.text_area :body %>
+  
+  <%= f.submit 'Create Book' %>
+<% end %>
+  
